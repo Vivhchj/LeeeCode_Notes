@@ -4,7 +4,7 @@
 ### 说明：你不能倾斜容器，且 n 的值至少为 2。
 
 ### solution:
-## 暴力法果然超时，我就不应该写出来
+### 暴力法：果然超时，我就不应该写出来
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         # n = len(height)
@@ -14,8 +14,8 @@ class Solution:
         #         most = max(most, min(height[i],height[j])*(j-i))
         # return most
         
-## 双指针收缩法：左右两个指针按照特定规则向内收缩直至相遇
-## 特定规则：短板收缩（若长板收缩盛水量只能变小），等长同缩
+### 双指针收缩法：左右两个指针按照特定规则向内收缩直至相遇
+### 特定规则：短板向内收缩（若长板收缩盛水量只能变小），等长向内同缩
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         i,j,most = 0,len(height)-1,0
