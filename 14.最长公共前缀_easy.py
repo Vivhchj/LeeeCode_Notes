@@ -6,7 +6,21 @@
 ### 输出: "fl"
 
 ### solution:
-### 1.大佬的巧妙方法：运用zip()函数和set()函数
+### 1.大佬的巧妙方法：运用find()函数
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:       
+        ## find(), str.find(str1, beg=0, end=len(string))
+        ## 检测字符串中是否包含子字符串str1，默认beg和end范围，
+        ## 返回值是匹配到字符串的起始索引，匹配不到则返回-1
+        if not strs: return ""
+        ## 初始匹配串设为第一个子串
+        res,i = strs[0],1
+        while i<len(strs):
+            ## 若返回值不是0，则表示匹配失败，匹配串从末尾减掉1个，直至匹配成功
+            while strs[i].find(res)!=0: res=res[0:len(res)-1]
+            i+=1
+        return res
+### 2.大佬的巧妙方法：运用zip()函数和set()函数
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
         ## zip()函数将可迭代的对象作为参数，将对应的元素打包成一个个元组，返回由这些元组组成的对象。
@@ -24,7 +38,7 @@ class Solution:
                 break           
         return result
 
-## 2.自己的暴力方法：找到最短的字串长度min_l，再判断每串的同一索引是否相同，直到不同或末尾
+## 3.自己的暴力方法：找到最短的字串长度min_l，再判断每串的同一索引是否相同，直到不同或末尾
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
         n = len(strs)
