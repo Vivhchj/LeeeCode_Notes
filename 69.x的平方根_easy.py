@@ -23,7 +23,7 @@ class Solution:
         left = right >> 1
         # 定位到result在[left,right]之间，在此范围内二分查找得到result
         while left < right:
-            # 取到右中位数
+            # 取到右中位数，这很重要（根据左右端点的取值变化而确定）
             mid = (left + right + 1) >> 1
             # 当mid^2<=x时，result一定在[mid, right]之间
             if mid * mid <= x:
